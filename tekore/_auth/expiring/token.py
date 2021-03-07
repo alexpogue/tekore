@@ -36,7 +36,7 @@ class Token(AccessToken):
         self._access_token = token_info['access_token']
         self._token_type = token_info['token_type']
 
-        self._scope = Scope(*token_info['scope'].split(' '))
+        self._scope = Scope(*token_info.get('scope', '').split(' '))
         if str(self._scope) == '':
             self._scope = Scope()
 
